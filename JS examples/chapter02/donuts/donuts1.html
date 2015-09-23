@@ -1,0 +1,94 @@
+<html>
+<head>
+     <title>Duncan's Just-In-Time Donuts</title>
+     <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="donuts.css" />
+
+     <script type="text/javascript">
+      function updateOrder() {
+        const TAXRATE = .15;
+        const DONUTPRICE = 2;
+        // преобразуем в число с плавающей точкой
+        var numCakeDonuts = parseFloat(document.getElementById("cakedonuts").value);
+        // преобразуем в число с плавающей точкой
+        var numGlazedDonuts = parseFloat(document.getElementById("glazeddonuts").value);
+        // если введено не числовое значение, присваивается 0
+        if (isNaN(numCakeDonuts))
+          numCakeDonuts = 0;
+        if (isNaN(numGlazedDonuts))
+          numGlazedDonuts = 0;
+        var subTotal = (numCakeDonuts + numGlazedDonuts) * DONUTPRICE;
+        var tax = subTotal * TAXRATE;
+        var total = subTotal + tax;
+        // toFixed(2) округляет значение до 2 знаков после точки
+        document.getElementById("subtotal").value = "$" + subTotal.toFixed(2);
+        document.getElementById("tax").value = "$" + tax.toFixed(2);
+        document.getElementById("total").value = "$" + total.toFixed(2);
+      }
+      
+      /*function parseDonuts(donutString) {
+        numDonuts = parseInt(donutString);
+        if (donutString.indexOf("dozen") != -1)
+          numDonuts *= 12;
+        return numDonuts;
+      }*/
+
+      function placeOrder(form) {
+        // Submit the order to the server
+        if (document.getElementById("name").value == "")
+          alert("Введите имя прежде чем оформить заказ");
+        else if (document.getElementById("pickupminutes").value == "")
+          alert("Введите ожидаемое время доставки");
+        else  if (isNaN(document.getElementById("pickupminutes").value))
+          alert("Необходимо ввести число");
+        else
+        form.submit();
+      }
+    </script>
+</head>
+
+<body>
+     <div id="frame">
+          <div class="heading">Duncan's Just-In-Time Donuts</div>
+          <div class="subheading">All donuts 50 cents each, cake or glazed!</div>
+          <div id="left">
+               <img src="donuttime.png" alt="Just-In-Time Donuts" />
+          </div>
+          <form name="orderform" action="donuts.php" method="POST">
+               <div class="field">
+                    Name:
+                    <input type="text" id="name" name="name" value="" />
+               </div>
+               <div class="field">
+                    # of cake donuts:
+                    <input type="text" id="cakedonuts" name="cakedonuts" value=""
+          onchange="updateOrder();" />
+               </div>
+               <div class="field">
+                    # of glazed donuts:
+                    <input type="text" id="glazeddonuts" name="glazeddonuts" value=""
+          onchange="updateOrder();" />
+               </div>
+               <div class="field">
+                    Minutes 'til pickup:
+                    <input type="text" id="pickupminutes" name="pickupminutes" value="" />
+               </div>
+               <div class="field">
+                    Subtotal:
+                    <input type="text" id="subtotal" name="subtotal" value="" readonly="readonly" />
+               </div>
+               <div class="field">
+                    Tax:
+                    <input type="text" id="tax" name="tax" value="" readonly="readonly" />
+               </div>
+               <div class="field">
+                    Total:
+                    <input type="text" id="total" name="total" value="" readonly="readonly" />
+               </div>
+               <div class="field">
+                    <input type="button" value="Place Order" onclick="placeOrder(this.form);" />
+               </div>
+          </form>
+     </div>
+</body>
+</html>

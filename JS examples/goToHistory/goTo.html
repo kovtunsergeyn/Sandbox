@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ветвления</title>
+	<meta charset = "UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/styleHistory.css">
+	<script type="text/javascript">
+		var curScene = 0;
+
+			function changeScene(decision) {
+				var message = "";
+
+				if (curScene == 0) {
+					curScene = 1;
+					message = "Ваше приключение начинается на развилке";
+				}
+				else if (curScene == 1){
+					if (decision == 1) {
+						curScene = 2;
+						message = "Вы пришли к какому то дому";
+					}
+					else {
+						curScene = 3;
+						message = "Вы пришли на мост";
+					}
+				}
+				else if (curScene == 2){
+					if (decision == 1) {
+						curScene = 4;
+						message = "Вы увидили ведьму в окне дома";
+					}
+					else {
+						curScene = 5;
+						message = "Бабка вас зажарила";
+					}
+				}
+				else if (curScene == 3){
+					if (decision == 1){
+						curScene = 6;
+						message = "Великан вас сожрал"
+					}
+					else {
+						curScene = 7;
+						message = "Вы повстречали троля, что будете делать?"
+					}
+				}
+				else if (curScene == 4){
+					if (decision == 1) {
+						curScene = 8;
+						message = "Продолжение следует"
+					}
+					else {
+						curScene = 5;
+						message = "Бабка вас сварила заживо"
+					}
+				}
+				else if (curScene == 5)
+					curScene = 0;
+				else if (curScene == 6)
+					curScene = 0;
+				else if (curScene == 7){
+					if (decision == 1){
+						curScene = 6;
+					}
+					else {
+						curScene = 9;
+					}
+				}
+				else if (curScene == 8) {
+						if (decision)
+							curScene = 0;
+					}
+				else if (curScene == 9) {
+						if (decision)
+							curScene = 0;
+					}
+
+				document.getElementById("sceneImg").src = "scene" + curScene + ".png";
+				if (message != "")
+					alert(message);
+			}
+	</script>
+</head>
+<body>
+	<p>Принятие решений!</p>
+	<div class="dive">
+		<img src="scene0.png" id="sceneImg">
+	</div>
+	<div class="buttons">
+		<input type="button" value="ВАРИАНТ 1" onclick="changeScene(1)" class="button" style="cursor:pointer">
+		<input type="button" value="ВАРИАНТ 2" onclick="changeScene(2)" class="button" style="cursor:pointer">
+	</div>
+</body>
+</html>

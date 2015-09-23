@@ -1,0 +1,54 @@
+/* Код для подключения шрифта в /css/stylename.css */
+
+/* font-family: "AvatarRegular"; */
+@font-face {
+    font-family: "AvatarRegular";
+    src: url("../fonts/AvatarRegular/AvatarRegular.eot");
+    src: url("../fonts/AvatarRegular/AvatarRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/AvatarRegular/AvatarRegular.woff") format("woff"),
+    url("../fonts/AvatarRegular/AvatarRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/*остальные таблицы стилей*/
+body {
+	font-family: "AvatarRegular";
+	background-image: url('../images/background.png');
+}
+p {
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.button {
+	font-family: "AvatarRegular";
+	position: relative;
+	display: inline-block;
+	font-size: 90%;
+	font-weight: 700;
+	color: rgb(209,209,217);
+	text-decoration: none;
+	text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+	padding: .5em 1em;
+	outline: none;
+	border-radius: 3px;
+	background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+	box-shadow:
+	   0 1px rgba(255,255,255,.2) inset,
+	   0 3px 5px rgba(0,1,6,.5),
+	   0 0 1px 1px rgba(0,1,6,.2);
+}
+.dive {
+	margin: 0 37.5% 0 37.5%;
+	width: 25%;
+}
+.buttons {
+	margin-left: 40.5%;
+	width: 270px;
+}
+#sceneImg {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	margin: 0 10% 0 10%;
+	width: 80%;
+}
