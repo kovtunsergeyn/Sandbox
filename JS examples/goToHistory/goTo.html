@@ -5,26 +5,34 @@
 	<meta charset = "UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/styleHistory.css">
 	<script type="text/javascript">
+		//выбираем в качестве текущей сцену 0 (введение)
 		var curScene = 0;
 
 			function changeScene(decision) {
+				//удаляем описание сцены для этого применяется следующий код: if (message != "") alert(message);
 				var message = "";
 
-				if (curScene == 0) {
-					curScene = 1;
-					message = "Ваше приключение начинается на развилке";
+				//тестовый кусок кода - для первых 2 сцен используется switch/case вместо if/else
+				switch (curScene) {
+
+					case 0:
+						curScene=1;
+						message="Ваше приключение начинается на развилке";
+						break;
+
+					case 1:
+						if (decision == 1) {
+							curScene = 2;
+							message = "Вы пришли к какому то дому";
+						}
+						else {
+							curScene = 3;
+							message = "Вы пришли на мост";
+						}
+						break;
 				}
-				else if (curScene == 1){
-					if (decision == 1) {
-						curScene = 2;
-						message = "Вы пришли к какому то дому";
-					}
-					else {
-						curScene = 3;
-						message = "Вы пришли на мост";
-					}
-				}
-				else if (curScene == 2){
+
+				if (curScene == 2){
 					if (decision == 1) {
 						curScene = 4;
 						message = "Вы увидили ведьму в окне дома";
@@ -67,10 +75,12 @@
 					}
 				}
 				else if (curScene == 8) {
+					//возвращает на вводную сцену
 						if (decision)
 							curScene = 0;
 					}
 				else if (curScene == 9) {
+					//возвращает на вводную сцену
 						if (decision)
 							curScene = 0;
 					}
@@ -81,6 +91,7 @@
 			}
 	</script>
 </head>
+
 <body>
 	<p>Принятие решений!</p>
 	<div class="dive">
