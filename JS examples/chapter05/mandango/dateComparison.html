@@ -2,7 +2,7 @@
 <head>
 	<title>Date comparison</title>
 	<meta charset="UTF-8">
-
+	<link rel="stylesheet" href="style.css"/>
 	<script type="text/javascript">
 		function dateСomparison() {
 			var firstDate = parseInt(document.getElementById("date1").value);
@@ -33,21 +33,21 @@
 
 		setInterval(function clearValidate() {document.getElementById("firstCheck").innerHTML = "";}, 5000);
 	</script>
-</head>
-<body onload="clearFunc();">
-<label>Дата №1*:
-	<input type="text" id='date1' /><br>
-</label>
-<label>Дата №2 :
-	<input type="text" id='date2' style="margin-left: 4px; margin-top: 5px;" /><br>
-</label>
-<label>Дата №3*:
-	<input type="text" id='date3' style="margin-top: 5px;" /><br>
-</label>
-<div style="margin-left: 7.5%;">
-	<input type="button" value="Check!" id="checkDate" onclick="dateСomparison();" />
-	<input type="button" value="Clear!" id="clearButton" onclick="clearFunc();" />
-</div>
-<p id="firstCheck"></p>
-</body>
+	</head>
+	<body onload="clearFunc();">
+		<label>Дата №1*:
+			<input type="text" id='date1' /><br>
+		</label>
+		<label>Дата №2 :
+			<input type="text" id='date2' style="margin-left: 4px; margin-top: 5px;" /><br>
+		</label>
+		<label>Дата №3*:
+			<input type="text" id='date3' style="margin-top: 5px;" /><br>
+		</label>
+		<div style="margin-left: 7.5%;">
+			<input type="button" value="Check!" id="checkDate" onclick="dateСomparison();" />
+			<input type="button" value="Clear!" id="clearButton" onclick="clearFunc();" />
+		</div>
+		<p id="firstCheck"></p>
+	</body>
 </html>
