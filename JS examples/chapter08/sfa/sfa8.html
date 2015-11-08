@@ -40,10 +40,12 @@
           message = "Your journey begins at a fork in the road.";
           decision1 = "Take the Path";
           decision2 = "Take the Bridge";
+
+          document.getElementById("decision2").style.visibility = "visible";
           break;
         case 1:
           if (decision == 1) {
-            curScene = 2
+            curScene = 2;
             message = "You have arrived at a cute little house in the woods.";
             decision1 = "Walk around Back";
             decision2 = "Knock on Door";
@@ -57,7 +59,7 @@
           break;
         case 2:
           if (decision == 1) {
-            curScene = 4
+            curScene = 4;
             message = "Peeking through the window, you see a witch inside the house.";
             decision1 = "Sneak by Window";
             decision2 = "Wave at Witch";
@@ -67,14 +69,16 @@
             message = "Sorry, a witch lives in the house and you just became part of her stew.";
             decision1 = "Start Over";
             decision2 = "";
+            document.getElementById("decision2").style.visibility = "hidden";
           }
           break;
         case 3:
           if (decision == 1) {
-            curScene = 6
+            curScene = 6;
             message = "Sorry, a troll lives on the other side of the bridge and you just became his lunch.";
             decision1 = "Start Over";
             decision2 = "";
+            document.getElementById("decision2").style.visibility = "hidden";
           }
           else {
             curScene = 7;
@@ -85,7 +89,7 @@
           break;
         case 4:
           if (decision == 1) {
-            curScene = 8
+            curScene = 8;
             decision1 = "?";
             decision2 = "?";
           }
@@ -94,6 +98,7 @@
             message = "Sorry, you became part of the witch's stew.";
             decision1 = "Start Over";
             decision2 = "";
+            document.getElementById("decision2").style.visibility = "hidden";
           }
           break;
         case 5:
@@ -108,10 +113,11 @@
           break;
         case 7:
           if (decision == 1) {
-            curScene = 6
+            curScene = 6;
             message = "Sorry, you became the troll's tasty lunch.";
             decision1 = "Start Over";
             decision2 = "";
+            document.getElementById("decision2").style.visibility = "hidden";
           }
           else {
             curScene = 9;
@@ -147,7 +153,7 @@
         onmouseout="this.className = 'decision'">Start Game</span>
       <span id="decision2" class="decision" onclick="changeScene(2)"
         onmouseover="this.className = 'decisionhover'"
-        onmouseout="this.className = 'decision'"></span>
+        onmouseout="this.className = 'decision'" style="visibility: hidden;"></span>
     </div>
   </body>
 </html>
