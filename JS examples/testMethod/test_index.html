@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Метод assert</title>
+    <link rel="stylesheet" href="test_style.css"/>
+    <script src="test_function.js"></script>
+
+    <script>
+        function uslessFunction() {
+            return true;
+        }
+
+        function testFunction (a) {
+            if (a == true)
+                return false;
+            else
+            return true;
+        }
+        window.onload = function () {
+            assert( true, "Тест работает");
+            assert( false, "Тест работает, хоть и возвращается не false");
+            assert(uslessFunction(), "Бесполезная функция возвращает значение true");
+            assert(testFunction(true), "return возвращает значение ИМЕННО ФУНКЦИИ а не АРГУМЕНТАМ ФУНКЦИИ");
+        };
+    </script>
+</head>
+<body>
+    <ul id="results"></ul>
+</body>
+</html>
