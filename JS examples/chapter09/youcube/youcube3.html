@@ -32,13 +32,32 @@
             blogText += "<p>";
 
           // Generate the formatted blog HTML code
-          blogText += "<strong>" + (blog[i].date.getMonth() + 1) + "/" +            blog[i].date.getDate() + "/" +            blog[i].date.getFullYear() + "</strong><br />" +            blog[i].body + "</p>";
+          blogText += "<strong>" + (blog[i].date.getMonth() + 1) + "/" +
+            blog[i].date.getDate() + "/" +
+            blog[i].date.getFullYear() + "</strong><br />" +
+            blog[i].body + "</p>";
 
           i++;
         }
 
         // Set the blog HTML code on the page
         document.getElementById("blog").innerHTML = blogText;
+      }
+
+      function searchBlog() {
+        var searchText = document.getElementById("searchtext").value;
+        for (var i = 0; i < blog.length; i++) {
+          //Проверяем содержит ли запись поисковый текст
+          if (blog[i].body.toLowerCase().indexOf(searchText.toLowerCase()) != 1) {
+            alert("[" + (blog[i].date.getMonth() + 1) + "/" + blog[i].date.getDate() + "/" + blog[i].date.getFullYear() + "]" + blog[i].body);
+            break;
+          }
+          //Если нет совпадений внутри массива выводим сообщение
+          if (i == blog.length) {
+            alert("Извините, но поиск не дал результатов");
+          }
+        }
+
       }
     </script>
   </head>
@@ -48,5 +67,7 @@
     <img src="cube.png" alt="YouCube" />
     <div id="blog"></div>
     <input type="button" id="showall" value="Show All Blog Entries" onclick="showBlog();" />
+    <input type="button" id="search" value="Search of the blog" onclick="searchBlog()"/>
+    <input type="text" id="searchtext" name="searchtext" value=""/>
   </body>
 </html>
