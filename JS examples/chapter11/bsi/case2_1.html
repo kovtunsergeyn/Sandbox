@@ -8,12 +8,11 @@
 
       function checkWinner(form, caller, winningNum) {
         // Increment the call number
-        var callNum;
         ++callNum;
 
         // Check for a winner
-        if (callNum = winningNum) {
-          alert(caller + ", caller number  + callNum + "...today's winner!");
+        if (callNum == winningNum) {
+          alert(caller + winningNum + "is winner!");
           form.submit();
         }
         else {
@@ -32,7 +31,7 @@
       <img src="radio.png" alt="radio" />
       Caller name: <input id="caller" name="caller" type="text" />
       <input type="button" value="Call"
-        onclick="checkwinner(this.form, document.getElementById('caller').value, 7)" />
+        onclick="checkWinner(this.form, document.getElementById('caller').value, 7)" />
     </form>
   </body>
 </html>
